@@ -7,8 +7,6 @@
 
             <div class="overflow-x-hidden w-2/3">
                 <router-view></router-view>
-
-                <p v-for="i in 100">qwerty</p>
             </div>
 
         </div>

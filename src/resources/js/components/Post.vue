@@ -6,17 +6,17 @@
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Pierre-Person.jpg/1200px-Pierre-Person.jpg" alt="profile image for user" class="w-8 h-8 object-cover rounded-full">
                 </div>
                 <div class="ml-6">
-                    <div class="text-sm font-bold">Name User</div>
-                    <div class="text-sm text-gray-600">12 mins</div>
+                    <div class="text-sm font-bold">{{ post.data.attributes.posted_by.data.attributes.name }}</div>
+                    <div class="text-sm text-gray-600">{{ post.data.attributes.posted_at }}</div>
                 </div>
             </div>
             <div class="mt-4">
-                <p>not having fu nat all.</p>
+                <p>{{ post.data.attributes.body }}</p>
             </div>
         </div>
 
-        <div class="w-full ">
-            <img src="https://lh3.googleusercontent.com/-H6PacdskbPehw_P3NQvLvIix3PK3gNC82AZXhpFhYm5PVY26CqyHieUp_jifhmYY-FrcezAVQ=w640-h400-e365" alt="post image" class="w-full">
+        <div class="w-full" v-if="post.data.attributes.image">
+            <img :src="post.data.attributes.image" alt="post image" class="w-full">
         </div>
 
         <div class="px-4 pt-2 flex justify-between text-gray-700 text-sm">
@@ -45,7 +45,11 @@
 
 <script>
     export default {
-        name: "Post"
+        name: "Post",
+
+        props: [
+            'post',
+        ]
     }
 </script>
 
